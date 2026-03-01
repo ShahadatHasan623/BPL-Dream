@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { use } from 'react';
 
-const Available = () => {
+const Available = ({playerPromise}) => {
+    const players =use(playerPromise)
+    console.log(players);
     return (
         <div>
             
