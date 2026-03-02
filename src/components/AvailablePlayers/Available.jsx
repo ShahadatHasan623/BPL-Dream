@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import Player from "../Player/Player";
-const Available = ({ playerPromise, availableBlance, setAvailableBlance }) => {
+const Available = ({ playerPromise, availableBlance, setAvailableBlance,selectedPlayer,setSelectedPlayer }) => {
   const players = use(playerPromise);
   console.log(players);
   return (
@@ -9,6 +9,8 @@ const Available = ({ playerPromise, availableBlance, setAvailableBlance }) => {
         <Player
           availableBlance={availableBlance}
           setAvailableBlance={setAvailableBlance}
+          setSelectedPlayer={setSelectedPlayer}
+          selectedPlayer ={selectedPlayer}
           player={player}
         ></Player>
       ))}

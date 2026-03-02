@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import userImg from "../../assets/user1.png";
 import { BsFlagFill } from "react-icons/bs";
-const Player = ({ player, availableBlance, setAvailableBlance }) => {
+const Player = ({ player, availableBlance, setAvailableBlance,selectedPlayer,setSelectedPlayer }) => {
   const [isSelected, setSelected] = useState(false);
 
   const handleBlance = (player) => {
@@ -11,6 +11,8 @@ const Player = ({ player, availableBlance, setAvailableBlance }) => {
         return
     }
     setAvailableBlance(availableBlance - player.price)
+    const newPlayer =[...selectedPlayer,player]
+    setSelectedPlayer(newPlayer)
   };
   return (
     <div key={player.id} className="card bg-base-100 shadow-sm p-5 space-y-1">
