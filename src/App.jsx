@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import SelectedPlayers from "./components/SelectedPlayers/SelectedPlayers";
 import { removeToLocalStorage } from "./utils/LocalStorage";
 import { toast } from "react-toastify";
+import Home from "./components/Home/Home";
 
 const fetchPlayers = async () => {
   const res = await fetch("../public/players.json");
@@ -27,7 +28,8 @@ function App() {
   return (
     <>
       <Navbar availableBlance={availableBlance}></Navbar>
-      <div className="max-w-6xl mx-auto flex justify-between items-center my-5">
+      <Home></Home>
+      <div className="max-w-6xl mx-auto flex justify-between items-center my-5 md:px-0 px-5">
         <h1 className="text-2xl font-bold">
           {toggle ? "Available Players" : "Selected Players"}
         </h1>

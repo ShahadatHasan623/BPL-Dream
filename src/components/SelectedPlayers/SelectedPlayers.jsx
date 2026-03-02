@@ -7,7 +7,7 @@ const SelectedPlayers = ({ selectedPlayer,handleRemoveCart,setToggle}) =>
 
         
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto my-10 md:px-0 px-5">
       {selectedPlayer.map((selected) => (
         <div>
           <div className="card bg-base-300 text-gray-700 p-5 my-5">
@@ -31,7 +31,7 @@ const SelectedPlayers = ({ selectedPlayer,handleRemoveCart,setToggle}) =>
           </div>
         </div>
       ))}
-      <button onClick={()=>setToggle(true)} className="btn btn-success">Add More</button>
+      <button onClick={()=>setToggle(true)} className="btn btn-success mt-5">Add More</button>
     </div>
   );
 };

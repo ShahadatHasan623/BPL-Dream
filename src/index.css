@@ -1,2 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.bg-image{
+    background-image: url(./assets/bg-shadow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
