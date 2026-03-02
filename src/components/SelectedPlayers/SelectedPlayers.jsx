@@ -20,8 +20,8 @@ const SelectedPlayers = ({ selectedPlayer }) => {
                 </div>
               </div>
 
-              <div className="bg-red-300 p-2 rounded-full hover:bg-red-500">
-                <MdDelete  size={30}/>
+              <div>
+                <button  className="bg-red-300 p-2 rounded-full hover:bg-red-500"><MdDelete  size={30}/></button>
               </div>
             </div>
           </div>
