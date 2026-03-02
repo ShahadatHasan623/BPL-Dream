@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import userImg from "../../assets/user1.png";
 import { BsFlagFill } from "react-icons/bs";
-const Player = ({ player, availableBlance, setAvailableBlance,selectedPlayer,setSelectedPlayer }) => {
+
+const Player = ({ player, availableBlance, setAvailableBlance,selectedPlayer,setSelectedPlayer,handleAddtoCart }) => {
   const [isSelected, setSelected] = useState(false);
+
 
   const handleBlance = (player) => {
     setSelected(true);
@@ -13,6 +15,7 @@ const Player = ({ player, availableBlance, setAvailableBlance,selectedPlayer,set
     setAvailableBlance(availableBlance - player.price)
     const newPlayer =[...selectedPlayer,player]
     setSelectedPlayer(newPlayer)
+    handleAddtoCart(player)
   };
   return (
     <div key={player.id} className="card bg-base-100 shadow-sm p-5 space-y-1">

@@ -1,12 +1,12 @@
 import React from "react";
 import { MdDelete } from "react-icons/md";
 
-const SelectedPlayers = ({ selectedPlayer }) => {
+const SelectedPlayers = ({ selectedPlayer,handleRemoveCart  }) => {
   return (
     <div className="max-w-6xl mx-auto">
       {selectedPlayer.map((selected) => (
         <div>
-          <div className="card bg-base-300 text-gray-700 p-5">
+          <div className="card bg-base-300 text-gray-700 p-5 my-5">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-3">
                 <img
@@ -21,7 +21,7 @@ const SelectedPlayers = ({ selectedPlayer }) => {
               </div>
 
               <div>
-                <button  className="bg-red-300 p-2 rounded-full hover:bg-red-500"><MdDelete  size={30}/></button>
+                <button onClick={()=>handleRemoveCart(selected.id)}  className="bg-red-300 p-2 rounded-full hover:bg-red-500"><MdDelete  size={30}/></button>
               </div>
             </div>
           </div>

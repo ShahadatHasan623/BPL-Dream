@@ -18,4 +18,10 @@ const addToLocalStorage =id =>{
     saveToLocalStorage(newPlayers)
 }
 
-export {addToLocalStorage as addStored ,getToLocalStorage as getTolacal}
+const removeToLocalStorage =id =>{
+    const getStoredIds =getToLocalStorage()
+    const removeItem =getStoredIds.filter(ids=>ids !== id)
+    saveToLocalStorage(removeItem)
+}
+
+export {addToLocalStorage as addStored ,getToLocalStorage as getTolacal , removeToLocalStorage}
