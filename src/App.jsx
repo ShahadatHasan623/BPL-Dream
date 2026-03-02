@@ -6,6 +6,7 @@ import SelectedPlayers from "./components/SelectedPlayers/SelectedPlayers";
 import { removeToLocalStorage } from "./utils/LocalStorage";
 import { toast } from "react-toastify";
 import Home from "./components/Home/Home";
+import Footer from "./components/Footer/Footer";
 
 const fetchPlayers = async () => {
   const res = await fetch("../public/players.json");
@@ -65,6 +66,7 @@ function App() {
       ) : (
         <SelectedPlayers toggle={toggle} setToggle={setToggle} handleRemoveCart={handleRemoveCart} selectedPlayer={selectedPlayer}></SelectedPlayers>
       )}
+      <Footer></Footer>
     </>
   );
 }
