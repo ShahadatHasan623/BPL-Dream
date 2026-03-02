@@ -4,6 +4,7 @@ import Available from "./components/AvailablePlayers/Available";
 import Navbar from "./components/Navbar/Navbar";
 import SelectedPlayers from "./components/SelectedPlayers/SelectedPlayers";
 import { removeToLocalStorage } from "./utils/LocalStorage";
+import { toast } from "react-toastify";
 
 const fetchPlayers = async () => {
   const res = await fetch("../public/players.json");
@@ -12,14 +13,17 @@ const fetchPlayers = async () => {
 const playerPromise = fetchPlayers();
 function App() {
   const [toggle, setToggle] = useState(true);
-  const [availableBlance, setAvailableBlance] = useState(6000000000);
+  const [availableBlance, setAvailableBlance] = useState(600000000);
   const [selectedPlayer, setSelectedPlayer] = useState([]);
 
   const handleRemoveCart = (id) => {
     const removeItem = selectedPlayer.filter((player) => player.id !== id);
     setSelectedPlayer(removeItem);
     removeToLocalStorage(id)
+    toast.error("Deleted Player")
   };
+
+
   return (
     <>
       <Navbar availableBlance={availableBlance}></Navbar>
@@ -38,7 +42,7 @@ function App() {
             onClick={() => setToggle(false)}
             className={`py-1 px-3 border-1 border-gray-400 rounded-r-2xl border-l-0 ${toggle === false ? "bg-[#E7FE29]" : ""}`}
           >
-            Selected <span>(0)</span>
+            Selected <span> ({selectedPlayer.length})</span>
           </button>
         </div>
       </div>
@@ -57,7 +61,7 @@ function App() {
           ></Available>
         </Suspense>
       ) : (
-        <SelectedPlayers handleRemoveCart={handleRemoveCart} selectedPlayer={selectedPlayer}></SelectedPlayers>
+        <SelectedPlayers toggle={toggle} setToggle={setToggle} handleRemoveCart={handleRemoveCart} selectedPlayer={selectedPlayer}></SelectedPlayers>
       )}
     </>
   );

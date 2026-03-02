@@ -32,12 +32,6 @@ const Available = ({
     addStored(player.id);
   };
 
-  const handleRemoveCart =id=>{
-    const getStoredId = getTolacal()
-    const removeItem =getStoredId.filter(player=>player !== id)
-    setSelectedPlayer(removeItem)
-  }
-  
   return (
     <div className="grid grid-cols-3 max-w-6xl mx-auto my-10 gap-5">
       {players.map((player) => (

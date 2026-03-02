@@ -1,7 +1,11 @@
 import React from "react";
 import { MdDelete } from "react-icons/md";
+import Available from "../AvailablePlayers/Available";
 
-const SelectedPlayers = ({ selectedPlayer,handleRemoveCart  }) => {
+const SelectedPlayers = ({ selectedPlayer,handleRemoveCart,setToggle}) => 
+    {
+
+        
   return (
     <div className="max-w-6xl mx-auto">
       {selectedPlayer.map((selected) => (
@@ -27,6 +31,7 @@ const SelectedPlayers = ({ selectedPlayer,handleRemoveCart  }) => {
           </div>
         </div>
       ))}
+      <button onClick={()=>setToggle(true)} className="btn btn-success">Add More</button>
     </div>
   );
 };
