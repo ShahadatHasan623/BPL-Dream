@@ -8,12 +8,13 @@ const fetchPlayers = async () => {
   const res = await fetch("../public/players.json");
   return res.json();
 };
+const playerPromise = fetchPlayers();
 function App() {
-  const playerPromise = fetchPlayers();
   const [toggle, setToggle] = useState(true);
+  const [availableBlance ,setAvailableBlance] =useState(6000000000)
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar availableBlance={availableBlance}></Navbar>
       <div className="max-w-6xl mx-auto flex justify-between items-center my-5">
         <h1 className="text-2xl font-bold">Available Players</h1>
         <div>
@@ -31,7 +32,7 @@ function App() {
             <span className="loading loading-spinner loading-xl"></span>
           }
         >
-          <Available playerPromise={playerPromise}></Available>
+          <Available availableBlance={availableBlance} setAvailableBlance={setAvailableBlance} playerPromise={playerPromise}></Available>
         </Suspense>
       ) : (
         <SelectedPlayers></SelectedPlayers>

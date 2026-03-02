@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import userImg from "../../assets/user1.png";
 import { BsFlagFill } from "react-icons/bs";
-const Player = ({player}) => {
+const Player = ({ player, availableBlance, setAvailableBlance }) => {
+  const [isSelected, setSelected] = useState(false);
+
+  const handleBlance = (player) => {
+    setSelected(true);
+    if(availableBlance < player.price){
+        alert("Not a enugh balance")
+        return
+    }
+    setAvailableBlance(availableBlance - player.price)
+  };
   return (
     <div key={player.id} className="card bg-base-100 shadow-sm p-5 space-y-1">
       <figure>
@@ -33,7 +43,11 @@ const Player = ({player}) => {
           <div>
             <h2 className="font-bold">Price: ${player.price}</h2>
           </div>
-          <button className="btn">Choose Player</button>
+          <button disabled={isSelected} onClick={() => {
+            handleBlance(player)
+          }} className="btn">
+            {isSelected ? "Slected" : "Choose Player"}
+          </button>
         </div>
       </div>
     </div>
