@@ -36,6 +36,7 @@ const Available = ({
     <div className="grid  grid-cols-1 px-5 md:px-0 md:grid-cols-3 max-w-6xl mx-auto mt-10 gap-5">
       {players.map((player) => (
         <Player
+          key={player.id}
           availableBlance={availableBlance}
           setAvailableBlance={setAvailableBlance}
           setSelectedPlayer={setSelectedPlayer}

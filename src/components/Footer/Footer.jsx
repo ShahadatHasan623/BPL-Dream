@@ -15,7 +15,7 @@ const Footer = () => {
 
           {/* Content */}
           <div className="relative z-10">
-            <h2 className="mb-3 text-4xl font-extrabold tracking-tight text-gray-900">
+            <h2 className="mb-3 md:text-4xl text-2xl font-extrabold tracking-tight text-gray-900">
               Subscribe to our Newsletter
             </h2>
             <p className="mb-10  text-gray-500">
